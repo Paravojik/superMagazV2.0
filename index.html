@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.8.3/lazyload.min.js" integrity="sha512-PYqZh14FSExDb67jbM60M4ri5A/Bn/xOiM1ihfPx7c1d8XywMmn2M7+Z4i+v9RF9dlzRYzqk7sXamAHKZjfyFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrap{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            /* justify-content: space-between;
+            align-items: center; */
+            /* flex-direction: column; */
+            flex-wrap: wrap;
+            margin-top: 15vh;
+        }
+        .card{
+            width: 320px;
+            height: 220px;
+            box-shadow: 0 0 10px #333;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/Loading_icon.gif);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 30px;
+            margin: 20px 0;
+        }
+        .cattagory{
+            min-width: 40px;
+            height: 30px;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: rgb(37, 37, 37);
+            border-radius: 15px;
+            box-shadow: 0 0 10px white;
+            font-weight: 600;
+            color: white;
+        }
+        .header{
+            position: fixed;
+            width: 100%;
+            height: 15vh;
+            padding: 10px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            top: 0;
+            background-color: rgba(210, 210, 210,0.7);
+           
+
+        }
+        .sort{
+            
+            height: 26px;
+            border-radius: 15px;
+            background-color: rgb(37, 37, 37);
+            padding: 5px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            user-select: none;
+            cursor: pointer;
+            margin: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+      <header class="header">
+        <div class="sort" id="all">All</div>
+        <div class="sort" id="gigiena">Гігієна</div>
+        <div class="sort" id="noji">Ножі</div>
+        <div class="sort" id="fonariku">Фонаріки</div>
+        <div class="sort" id="posyd">Посуд</div>
+        <div class="sort" id="forbuilding">Для будівництва</div>
+        <div class="sort" id="games">Іграшки</div>
+        <div class="sort" id="canztovaru">Канцтовари</div>
+        <div class="sort" id="other">Інші</div>
+      </header>  
+        <!-- <div class="card" id="car">
+            <div class="cattagory" id="cattagor"></div>
+            <div class="cattagory" id="nome"></div>
+        </div> -->
+        <!-- <div class="card" id="card2"></div>
+        <div class="card" id="card3"></div> -->
+    </div>
+    <script>
+    $('.card').css('backgroundImage','url(./img/Loading_icon.gif)')
+    for(let i=1;i<279;i++){ 
+       
+            if(i<=6 || i>=218 && i<=227 || i>=239 && i<=249){
+                $('.wrap').append(`<div class="card gigiena" id="card${i}">     <div class="cattagory" id="cattagory${i}">Гігієна</div>
+            <div class="cattagory" id="nomer${i}">0000${i}</div>
+            </div>`)
+            }else if(i>=10 && i<=26){
+                $('.wrap').append(`<div class="card noji" id="card${i}">     <div class="cattagory" id="cattagory${i}">Ножі</div>
+            <div class="cattagory" id="nomer${i}">0000${i}</div>
+            </div>`)
+            }else if(i>=31 && i<=38){
+                $('.wrap').append(`<div class="card fonariku" id="card${i}">     <div class="cattagory" id="cattagory${i}">Фонаріки</div>
+            <div class="cattagory" id="nomer${i}">0000${i}</div>
+            </div>`)
+            }else if(i>=61 && i<=71 || i==184 || i==185 || i==187 || i>=189 && i<=208){
+                $('.wrap').append(`<div class="card posyd" id="card${i}">     <div class="cattagory" id="cattagory${i}">Посуд</div>
+            <div class="cattagory" id="nomer${i}">0000${i}</div>
+            </div>`)
+            }else if(i>=75 && i<=93 || i>=190 && i<=191){
+                $('.wrap').append(`<div class="card forbuilding" id="card${i}">     <div class="cattagory" id="cattagory${i}">Для будівництва</div>
+            <div class="cattagory" id="nomer${i}">0000${i}</div>
+            </div>`)
+            }else if(i>=95 && i<=183 || i>=209 && i<=217 || i>=228 && i<=238){
+                $('.wrap').append(`<div class="card games" id="card${i}">     <div class="cattagory" id="cattagory${i}">Іграшки</div>
+            <div class="cattagory" id="nomer${i}">0000${i}</div>
+            </div>`)
+            }else if(i>=225 && i<=263 || i>=274 && i<=278){
+                $('.wrap').append(`<div class="card canztovaru" id="card${i}">     <div class="cattagory" id="cattagory${i}">Канцтовари</div>
+            <div class="cattagory" id="nomer${i}">0000${i}</div>
+            </div>`)
+            }else{
+                $('.wrap').append(`<div class="card other" id="card${i}">     <div class="cattagory" id="cattagory${i}">Інше</div>
+            <div class="cattagory" id="nomer${i}">0000${i}</div>
+            </div>`)
+            }
+        
+    }
+
+    $('#all').click(function(){
+        $('.card').css('display','flex')
+        notFound()
+    })
+    $('#gigiena').click(function(){
+        $('.card').css('display','none')
+        $('.gigiena').css('display','flex')
+        notFound()
+    })
+    $('#other').click(function(){
+        $('.card').css('display','none')
+        $('.other').css('display','flex')
+        notFound()
+    })
+    $('#noji').click(function(){
+        $('.card').css('display','none')
+        $('.noji').css('display','flex')
+        notFound()
+    })
+    $('#fonariku').click(function(){
+        $('.card').css('display','none')
+        $('.fonariku').css('display','flex')
+        notFound()
+    })
+    $('#posyd').click(function(){
+        $('.card').css('display','none')
+        $('.posyd').css('display','flex')
+        notFound()
+    })
+    $('#forbuilding').click(function(){
+        $('.card').css('display','none')
+        $('.forbuilding').css('display','flex')
+        notFound()
+    })
+    $('#games').click(function(){
+        $('.card').css('display','none')
+        $('.games').css('display','flex')
+        notFound()
+    })
+    $('#canztovaru').click(function(){
+        $('.card').css('display','none')
+        $('.canztovaru').css('display','flex')
+        notFound()
+    })
+
+
+
+
+
+        $(document).ready(function(){
+    
+                for(let c=1; c<279;c++){
+                    $('#card'+c).css('backgroundImage','url(./img/'+c+'.jpg)') 
+                }
+                notFound()
+    
+
+            //     $('#card1').css('backgroundImage','url(./img/1.jpg)') 
+            // $('#card2').css('backgroundImage','url(./img/2.jpg)') 
+            // $('#card3').css('backgroundImage','url(./img/3.jpg)') 
+  
+        })   
+        
+        function notFound(){
+            $('#card30').css('display','none')
+                $('#card74').css('display','none')
+                $('#card161').css('display','none')
+                $('#card159').css('display','none')
+        }
+    </script>
+</body>
+</html>
