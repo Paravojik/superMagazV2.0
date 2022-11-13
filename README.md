@@ -1,0 +1,1 @@
+# superMagazV2.0
